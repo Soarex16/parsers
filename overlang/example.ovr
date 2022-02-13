@@ -1,0 +1,40 @@
+module sample.module
+
+import other.module.someFunc as fn1
+import other.module.*
+
+val sumLambda = fn (x, y) -> x + y
+
+// do notation like?
+val sumWithBody = fn (x, y) -> {
+    x + y
+}
+
+val sumWithBody2 = fn (x, y) -> {
+    return x + y
+}
+
+val x = 12
+val y = x + 14
+val x = "123" // redeclaration allowed (but it will make type checking harder)
+val z: int = 42
+val s: str = "123"
+val b: bool = true
+
+val highOrderFunc = fn (f) -> f(1)
+
+val res = highOrderFunc(fn (x: int) -> x + 1)
+
+val fib = fn (n: int): int -> {
+    val f1 = 1
+    val f2 = 1
+
+    if (n < 1) return 0
+    if (n < 3) return 1
+
+    val f3 = f1
+    for (val i in 2..n) {
+        val f3 = f1 + f2
+    }
+}
+
